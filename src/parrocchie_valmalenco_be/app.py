@@ -24,7 +24,7 @@ def get_conf():
 
 @app.route('/conf/<conf>', methods=["DELETE"])
 def update_conf(conf):
-    if del_section(get_config_parser(PATH_INI), PATH_INI, conf):
+    if del_section(config=get_config_parser(path=PATH_INI), path=PATH_INI, key=conf):
         return "True"
     else:
         return jsonify(isError=True,

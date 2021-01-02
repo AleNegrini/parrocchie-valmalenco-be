@@ -23,7 +23,7 @@ def del_section(config, path, key):
     It deletes the section and the respective attributes from the config.ini file
     Args:
         config: config parser object
-        path: config file path
+        path: config file path where to save the new config file
         key: section key
 
     Returns:
