@@ -74,7 +74,7 @@ templates_path = ['_templates']
 # The suffix of source filenames.
 source_suffix = '.rst'
 
-# The encoding of source files.
+# The encoding of source test_files.
 # source_encoding = 'utf-8-sig'
 
 # The master toctree document.
@@ -103,8 +103,8 @@ release = ''  # Is set by calling `setup.py docs`
 # Else, today_fmt is used as the format for a strftime call.
 # today_fmt = '%B %d, %Y'
 
-# List of patterns, relative to source directory, that match files and
-# directories to ignore when looking for source files.
+# List of patterns, relative to source directory, that match test_files and
+# directories to ignore when looking for source test_files.
 exclude_patterns = ['_build']
 
 # The reST default role (used for this markup: `text`) to use for all documents.
@@ -169,8 +169,8 @@ else:
 # pixels large.
 # html_favicon = None
 
-# Add any paths that contain custom static files (such as style sheets) here,
-# relative to this directory. They are copied after the builtin static files,
+# Add any paths that contain custom static test_files (such as style sheets) here,
+# relative to this directory. They are copied after the builtin static test_files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
@@ -212,7 +212,7 @@ html_static_path = ['_static']
 # base URL from which the finished HTML is served.
 # html_use_opensearch = ''
 
-# This is the file name suffix for HTML files (e.g. ".xhtml").
+# This is the file name suffix for HTML test_files (e.g. ".xhtml").
 # html_file_suffix = None
 
 # Output file base name for HTML help builder.
@@ -232,7 +232,7 @@ latex_elements = {
 # 'preamble': '',
 }
 
-# Grouping the document tree into LaTeX files. List of tuples
+# Grouping the document tree into LaTeX test_files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
   ('index', 'user_guide.tex', u'parrocchie-valmalenco-be Documentation',

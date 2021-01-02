@@ -1,4 +1,4 @@
-# Temporary and binary files
+# Temporary and binary test_files
 *~
 *.py[cod]
 *.so
@@ -14,7 +14,7 @@ __pycache__/*
 */.ipynb_checkpoints/*
 .DS_Store
 
-# Project files
+# Project test_files
 .ropeproject
 .project
 .pydevproject
@@ -22,7 +22,7 @@ __pycache__/*
 .idea
 tags
 
-# Package files
+# Package test_files
 *.egg
 *.eggs/
 .installed.cfg
@@ -36,7 +36,7 @@ junit.xml
 coverage.xml
 .pytest_cache/
 
-# Build and docs folder/files
+# Build and docs folder/test_files
 build/*
 dist/*
 sdist/*

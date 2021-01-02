@@ -1,17 +1,16 @@
-# =============================================================================
-# DEPRECATION WARNING:
-#
-# The file `requirements.txt` does not influence the package dependencies and
-# will not be automatically created in the next version of PyScaffold (v4.x).
-#
-# Please have look at the docs for better alternatives
-# (`Dependency Management` section).
-# =============================================================================
-#
-# Add your pinned requirements so that they can be easily installed with:
-# pip install -r requirements.txt
-# Remember to also add them in setup.cfg but unpinned.
-# Example:
-# numpy==1.13.3
-# scipy==1.0
-#
+attrs==20.3.0
+click==7.1.2
+Flask==1.1.1
+Flask-Cors==3.0.9
+iniconfig==1.1.1
+itsdangerous==1.1.0
+Jinja2==2.11.2
+MarkupSafe==1.1.1
+packaging==20.8
+pluggy==0.13.1
+py==1.10.0
+pyparsing==2.4.7
+pytest==6.2.1
+six==1.15.0
+toml==0.10.2
+Werkzeug==1.0.1
