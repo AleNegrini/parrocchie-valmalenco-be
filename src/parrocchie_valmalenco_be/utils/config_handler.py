@@ -46,7 +46,9 @@ def del_section(config, path, key):
         key: section key
 
     Returns:
-        True if the delete operation run successfully, False elsewhere
+        0: if the section and its options have been correctly deleted
+        1: if the section is not present
+        2: if an error occurs during the file write
 
     """
 
@@ -63,13 +65,13 @@ def del_section(config, path, key):
         try:
             with open(path, 'w+') as conf:
                 config.write(conf)
-                return True
+                return 0
         except IOError as e:
             print("An error occurred while saving config to file: "+str(e))
-            return False
+            return 2
     else:
         print("No section available in the config file")
-        return False
+        return 1
 
 
 def add_section(config, path, key, opt1, opt2):

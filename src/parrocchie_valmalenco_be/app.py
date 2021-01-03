@@ -12,7 +12,7 @@ from src.parrocchie_valmalenco_be.utils.config_handler import \
 app = Flask(__name__)
 CORS(app)
 
-PATH_INI = '/Users/alessandro.negrini/Desktop/config.ini'
+PATH_INI = '/Users/alessandro.negrini/Desktop/config.ini' # da sistemare
 
 
 @app.route('/conf', methods=["GET"])
@@ -37,13 +37,21 @@ def del_or_get_conf(conf):
             return resp
 
     else:
-        if del_section(config=get_config_parser(path=PATH_INI), path=PATH_INI, key=conf):
+        if del_section(config=get_config_parser(path=PATH_INI), path=PATH_INI, key=conf) == 0:
             return jsonify(isError=False,
-                           message="Section and its options has been successfully deleted"), 200
+                           message="Section and its options has been successfully deleted",
+                           errorCode=200), 200
+        if del_section(config=get_config_parser(path=PATH_INI), path=PATH_INI, key=conf) == 1:
+            return jsonify(isError=True,
+                           message="Section has not been found in the config file",
+                           errorCode=404), 404
+        if del_section(config=get_config_parser(path=PATH_INI), path=PATH_INI, key=conf) == 2:
+            return jsonify(isError=True,
+                           message="An error occurred while saving the section and the options",
+                           errorCode=500), 500
         else:
             return jsonify(isError=True,
-                           message="Section has not been found in the config ini file or an error occurred during "
-                                   "the new config file ini saving",
+                           message="An unexpected error occurred",
                            errorCode=500), 500
 
 

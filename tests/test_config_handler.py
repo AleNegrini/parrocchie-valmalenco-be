@@ -74,8 +74,8 @@ def test_del_section():
 
     res_f1 = del_section(config1, CONFIG_INI_PATH1, 'torre')
     res_f2 = del_section(config2, CONFIG_INI_PATH2, 'caspoggio')
-    assert not res_f1
-    assert not res_f2
+    assert res_f1 == 1
+    assert res_f2 == 1
 
 
 def test_get_section():
