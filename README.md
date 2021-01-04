@@ -5,6 +5,8 @@
         <img src="https://img.shields.io/badge/flask%20-%23000.svg?&style=for-the-badge&logo=flask&logoColor=white"/>
         <br/>
         <br/>
+        <img src="https://img.shields.io/github/v/tag/AleNegrini/parrocchie-valmalenco-be"/>
+        <img src="https://img.shields.io/github/workflow/status/AleNegrini/parrocchie-valmalenco-be/cicd_test/develop"/>
         <img src="https://img.shields.io/github/issues/AleNegrini/parrocchie-valmalenco-be"/>
         <img src="https://img.shields.io/github/license/AleNegrini/parrocchie-valmalenco-be"/>
 </p>
