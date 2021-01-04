@@ -33,7 +33,8 @@ def get_section(config, key):
         return None
     else:
         rdict = dict()
-        rdict[key] = {'cam_ip': config.get(key, 'cam_ip'), 'cam_port': config.get(key, 'cam_port')}
+        rdict[key] = {'cam_ip': config.get(
+            key, 'cam_ip'), 'cam_port': config.get(key, 'cam_port')}
         return rdict
 
 
@@ -142,4 +143,3 @@ def get_config_parser(path):
     config = configparser.ConfigParser()
     config.read(path)
     return config
-
