@@ -11,6 +11,10 @@ CONFIG_INI_PATH3 = 'test_files/test_config_static_after_del.ini'
 CONFIG_INI_PATH4 = 'test_files/test_config_static_after_add.ini'
 
 
+def test_dummy():
+    assert 1 == 1
+
+
 def test_get_config_parser_len():
     config = get_config_parser(CONFIG_INI_PATH1)
     assert len(config.sections()) == 3
