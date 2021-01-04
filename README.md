@@ -11,6 +11,8 @@
 ### Conventions
 
 ### References
+- https://pypi.org/project/PyScaffold/
+- https://flask.palletsprojects.com
 
 ### TODO
  
