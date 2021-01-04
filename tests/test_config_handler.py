@@ -5,10 +5,10 @@ from src.parrocchie_valmalenco_be.utils.config_handler import get_config_parser,
     get_section,\
     add_section
 
-CONFIG_INI_PATH1 = 'test_files/test_config_static.ini'
-CONFIG_INI_PATH2 = 'test_files/empty_config.ini'
-CONFIG_INI_PATH3 = 'test_files/test_config_static_after_del.ini'
-CONFIG_INI_PATH4 = 'test_files/test_config_static_after_add.ini'
+CONFIG_INI_PATH1 = 'tests/test_files/test_config_static.ini'
+CONFIG_INI_PATH2 = 'tests/test_files/empty_config.ini'
+CONFIG_INI_PATH3 = 'tests/test_files/test_config_static_after_del.ini'
+CONFIG_INI_PATH4 = 'tests/test_files/test_config_static_after_add.ini'
 
 
 def test_get_config_parser_len():

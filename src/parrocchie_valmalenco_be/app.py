@@ -12,7 +12,7 @@ from src.parrocchie_valmalenco_be.utils.config_handler import \
 app = Flask(__name__)
 CORS(app)
 
-PATH_INI = '/Users/alessandro.negrini/Desktop/config.ini' # da sistemare
+PATH_INI = '/Users/alessandro.negrini/Desktop/config.ini'  # da sistemare
 
 
 @app.route('/conf', methods=["GET"])
