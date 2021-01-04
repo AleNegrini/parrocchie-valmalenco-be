@@ -16,7 +16,7 @@ pip install -r requirements.txt
 ```
 export PYTHONPATH = <project path>
 
-for example
+e.g.
 export PYTHONPATH = '/Users/alessandro.negrini/Personal/parrocchie-valmalenco-be'
 ```
 
@@ -25,7 +25,7 @@ export PYTHONPATH = '/Users/alessandro.negrini/Personal/parrocchie-valmalenco-be
 ```
 export CONFIGINIPATH = <path>
 
-for example
+e.g.
 export CONFIGINIPATH = '/Users/alessandro.negrini/Desktop/config.ini'
 ```
 
