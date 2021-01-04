@@ -27,3 +27,6 @@ jobs:
       - name: Test with pytest
         run: |
           pytest
+      - name: Build the package
+        run: |
+          python3 setup.py sdist bdist_wheel
