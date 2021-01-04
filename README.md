@@ -1,5 +1,7 @@
 # Parrocchie Valmalenco - Backend
 
+https://img.shields.io/github/license/AleNegrini/parrocchie-valmalenco-be
+
 ### Technologies
 
 ## Requirements
