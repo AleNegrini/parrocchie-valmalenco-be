@@ -1,14 +1,16 @@
-from src.parrocchie_valmalenco_be.utils.config_handler import get_config_parser, \
+from src.parrocchie_valmalenco_be.controllers.config_mic import get_config_parser, \
     get_all_sections, \
     section_present,\
     del_section,\
     get_section,\
-    add_section
+    add_section,\
+    update_section
 
 CONFIG_INI_PATH1 = 'tests/test_files/test_config_static.ini'
 CONFIG_INI_PATH2 = 'tests/test_files/empty_config.ini'
 CONFIG_INI_PATH3 = 'tests/test_files/test_config_static_after_del.ini'
 CONFIG_INI_PATH4 = 'tests/test_files/test_config_static_after_add.ini'
+CONFIG_INI_PATH5 = 'tests/test_files/test_config_static_after_update.ini'
 
 
 def test_get_config_parser_len():
@@ -109,4 +111,31 @@ def test_add_section():
     # check if the section is already present
     config2 = get_config_parser(CONFIG_INI_PATH4)
     resp = add_section(config2, CONFIG_INI_PATH4, 'torre', '192.168.1.4', 200)
+    assert resp == 1
+
+
+def test_update_section():
+    config1 = get_config_parser(CONFIG_INI_PATH1)
+
+    resp = update_section(config1, CONFIG_INI_PATH5,
+                          'caspoggio', {'cam_ip': '192.168.1.100', 'cam_port': '199'})
+    assert resp == 0
+
+    config2 = get_config_parser(CONFIG_INI_PATH5)
+    exp_dict = dict()
+    exp_dict['caspoggio'] = {'cam_ip': '192.168.1.100', 'cam_port': '199'}
+    assert get_section(config2, 'caspoggio') == exp_dict
+
+    resp = update_section(config1, CONFIG_INI_PATH5,
+                          'caspoggio', {'cam_ip': '', 'cam_port': '199'})
+    assert resp == 0
+
+    config2 = get_config_parser(CONFIG_INI_PATH5)
+    exp_dict = dict()
+    exp_dict['caspoggio'] = {'cam_ip': '', 'cam_port': '199'}
+    assert get_section(config2, 'caspoggio') == exp_dict
+
+    # How about if the section is not present?
+    resp = update_section(config1, CONFIG_INI_PATH5,
+                          'chiareggio', {'cam_ip': '192.168.1.100'})
     assert resp == 1

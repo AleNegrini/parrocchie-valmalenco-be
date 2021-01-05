@@ -107,6 +107,39 @@ def add_section(config, path, key, opt1, opt2):
             return 2
 
 
+def update_section(config, path, key, obj):
+    """
+    It updates an existing configuration
+
+    Args:
+        config: config parser object
+        path: config file path where to save the new config file 
+        key: section key
+        obj: new values
+
+    Returns:
+        0: if the section is correctly updated
+        1: if the section is not present
+        2: if an error occurs during the file write
+
+    """
+    if section_present(config, key):
+        for k in obj.keys():
+            config.set(key, k, obj[k])
+
+        # save the new config to the config ini file
+        try:
+            with open(path, 'w+') as conf:
+                config.write(conf)
+                return 0
+        except IOError as e:
+            print("An error occurred while saving config to file: "+str(e))
+            return 2
+
+    else:
+        return 1
+
+
 def get_all_sections(config):
     """
     It reads the config file and returns its content as a dictionary

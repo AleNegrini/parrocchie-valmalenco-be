@@ -3,7 +3,7 @@ from flask import Flask
 from flask_cors import CORS
 
 # import app endpoints
-from src.parrocchie_valmalenco_be.endpoints.mic_config.config_handler import configMic_blueprint
+from src.parrocchie_valmalenco_be.api.config_mic import configMic_blueprint
 
 
 # create the Flask application and enable CORS
