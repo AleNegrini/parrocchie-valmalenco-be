@@ -8,11 +8,12 @@ from src.parrocchie_valmalenco_be.utils.config_handler import \
     get_config_parser,\
     get_section,\
     add_section
+from src.parrocchie_valmalenco_be.utils.utils import get_env_var
 
 app = Flask(__name__)
 CORS(app)
 
-PATH_INI = '/Users/alessandro.negrini/Desktop/config.ini'  # da sistemare
+PATH_INI = get_env_var('PROVV')
 
 
 @app.route('/conf', methods=["GET"])
