@@ -35,7 +35,7 @@ def add_conf():
                        code=201), 201
     if add_section(config=get_config_parser(path=MIC_CONFIG_PATH_INI), path=MIC_CONFIG_PATH_INI, key=key, opt1=opt1, opt2=opt2) == 1:
         return jsonify(isError=True,
-                       message="A section with that key is already present",
+                       message="A section with that key is already present. Consider to use the specific endpoint for its modication",
                        code=409), 409
     if add_section(config=get_config_parser(path=MIC_CONFIG_PATH_INI), path=MIC_CONFIG_PATH_INI, key=key, opt1=opt1, opt2=opt2) == 2:
         return jsonify(isError=True,
@@ -66,7 +66,7 @@ def del_or_get_conf(conf):
                            code=200), 200
         if del_section(config=get_config_parser(path=MIC_CONFIG_PATH_INI), path=MIC_CONFIG_PATH_INI, key=conf) == 1:
             return jsonify(isError=True,
-                           message="Section has not been found in the config file",
+                           message="Section has not been found in the config ini file",
                            code=404), 404
         if del_section(config=get_config_parser(path=MIC_CONFIG_PATH_INI), path=MIC_CONFIG_PATH_INI, key=conf) == 2:
             return jsonify(isError=True,
@@ -85,7 +85,7 @@ def del_or_get_conf(conf):
                            code=200), 200
         if update_section(config=get_config_parser(path=MIC_CONFIG_PATH_INI), path=MIC_CONFIG_PATH_INI, key=conf, obj=body_request) == 1:
             return jsonify(isError=True,
-                           message="Section has not been found in the config file",
+                           message="Section has not been found in the config ini file",
                            code=404), 404
         if update_section(config=get_config_parser(path=MIC_CONFIG_PATH_INI), path=MIC_CONFIG_PATH_INI, key=conf, obj=body_request) == 1:
             return jsonify(isError=True,

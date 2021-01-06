@@ -15,3 +15,13 @@ def get_env_var(var):
     except KeyError as err:
         print("An error occurred during env variable reading. "+str(err))
         raise KeyError(err)
+
+
+def set_env_var(var, val):
+    """
+    It sets the value of the specified env. variable with value 'val'
+    Args:
+        var: environment variable name
+        val: environment variable value
+    """
+    os.environ[var] = val
