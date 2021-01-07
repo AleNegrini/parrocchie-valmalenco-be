@@ -7,7 +7,7 @@ from src.parrocchie_valmalenco_be.controllers.config_mic import \
     get_section,\
     add_section,\
     update_section
-from src.parrocchie_valmalenco_be.utils.config import MIC_CONFIG_PATH_INI
+from src.parrocchie_valmalenco_be.utils.config import *
 
 # define config_handler blueprint
 configMic_blueprint = Blueprint('confMic', __name__,)
@@ -31,20 +31,20 @@ def add_conf():
     opt2 = body_request['cam_port']
     if add_section(config=get_config_parser(path=MIC_CONFIG_PATH_INI), path=MIC_CONFIG_PATH_INI, key=key, opt1=opt1, opt2=opt2) == 0:
         return jsonify(isError=False,
-                       message="Section and its options has been successfully created",
-                       code=201), 201
+                       message=SUCCESS_ADD_MESSAGE,
+                       code=CREATED_CODE), CREATED_CODE
     if add_section(config=get_config_parser(path=MIC_CONFIG_PATH_INI), path=MIC_CONFIG_PATH_INI, key=key, opt1=opt1, opt2=opt2) == 1:
         return jsonify(isError=True,
-                       message="A section with that key is already present. Consider to use the specific endpoint for its modication",
-                       code=409), 409
+                       message=CONFLICT_SECT_MESSAGE,
+                       code=CONFLICT_CODE), CONFLICT_CODE
     if add_section(config=get_config_parser(path=MIC_CONFIG_PATH_INI), path=MIC_CONFIG_PATH_INI, key=key, opt1=opt1, opt2=opt2) == 2:
         return jsonify(isError=True,
-                       message="An error occurred while saving the section and the options",
-                       code=500), 500
+                       message=FILEW_ERROR_MESSAGE,
+                       code=IS_ERROR_CODE), IS_ERROR_CODE
     else:
         return jsonify(isError=True,
-                       message="An unexpected error occurred",
-                       code=500), 500
+                       message=UNEXP_ERROR_MESSAGE,
+                       code=IS_ERROR_CODE), IS_ERROR_CODE
 
 
 @configMic_blueprint.route('/confMic/<conf>', methods=["GET", "DELETE", "PUT"])
@@ -54,44 +54,44 @@ def del_or_get_conf(conf):
             path=MIC_CONFIG_PATH_INI), key=conf)
         if resp is None:
             return jsonify(isError=True,
-                           message="Section has not been found in the config ini file",
-                           code=404), 404
+                           message=NOT_FOUND_MESSAGE,
+                           code=NOT_FOUND_CODE), NOT_FOUND_CODE
         else:
             return resp
 
     if request.method == 'DELETE':
         if del_section(config=get_config_parser(path=MIC_CONFIG_PATH_INI), path=MIC_CONFIG_PATH_INI, key=conf) == 0:
             return jsonify(isError=False,
-                           message="Section and its options has been successfully deleted",
-                           code=200), 200
+                           message=SUCCESS_DEL_MESSAGE,
+                           code=SUCCESS_CODE), SUCCESS_CODE
         if del_section(config=get_config_parser(path=MIC_CONFIG_PATH_INI), path=MIC_CONFIG_PATH_INI, key=conf) == 1:
             return jsonify(isError=True,
-                           message="Section has not been found in the config ini file",
-                           code=404), 404
+                           message=NOT_FOUND_MESSAGE,
+                           code=NOT_FOUND_CODE), NOT_FOUND_CODE
         if del_section(config=get_config_parser(path=MIC_CONFIG_PATH_INI), path=MIC_CONFIG_PATH_INI, key=conf) == 2:
             return jsonify(isError=True,
-                           message="An error occurred while saving the section and the options",
-                           code=500), 500
+                           message=FILEW_ERROR_MESSAGE,
+                           code=IS_ERROR_CODE), IS_ERROR_CODE
         else:
             return jsonify(isError=True,
-                           message="An unexpected error occurred",
-                           code=500), 500
+                           message=UNEXP_ERROR_MESSAGE,
+                           code=IS_ERROR_CODE), IS_ERROR_CODE
     else:
         body_request = request.get_json()
 
         if update_section(config=get_config_parser(path=MIC_CONFIG_PATH_INI), path=MIC_CONFIG_PATH_INI, key=conf, obj=body_request) == 0:
             return jsonify(isError=False,
-                           message="Section has been successfully updated",
-                           code=200), 200
+                           message=SUCCESS_UPD_MESSAGE,
+                           code=SUCCESS_CODE), SUCCESS_CODE
         if update_section(config=get_config_parser(path=MIC_CONFIG_PATH_INI), path=MIC_CONFIG_PATH_INI, key=conf, obj=body_request) == 1:
             return jsonify(isError=True,
-                           message="Section has not been found in the config ini file",
-                           code=404), 404
+                           message=NOT_FOUND_MESSAGE,
+                           code=NOT_FOUND_CODE), NOT_FOUND_CODE
         if update_section(config=get_config_parser(path=MIC_CONFIG_PATH_INI), path=MIC_CONFIG_PATH_INI, key=conf, obj=body_request) == 1:
             return jsonify(isError=True,
-                           message="An error occurred while saving the section and the options",
-                           code=500), 500
+                           message=FILEW_ERROR_MESSAGE,
+                           code=IS_ERROR_CODE), IS_ERROR_CODE
         else:
             return jsonify(isError=True,
-                           message="An unexpected error occurred",
-                           code=500), 500
+                           message=UNEXP_ERROR_MESSAGE,
+                           code=IS_ERROR_CODE), IS_ERROR_CODE
